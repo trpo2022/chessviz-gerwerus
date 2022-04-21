@@ -12,6 +12,7 @@ int main() {
                                      {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
                                      {'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'}};
     PrintDesk(Desk);
+    asdasdasdasd
 }
 
 void PrintDesk(char Desk[deskSide][deskSide]) {
