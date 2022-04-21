@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define deskSide 8
-
+adasdasdas
 void PrintDesk(char Desk[deskSide][deskSide]);
 int main() {
     char Desk[deskSide][deskSide] = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
