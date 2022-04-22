@@ -49,7 +49,6 @@ int main() {
             system("pause");
             return 1;
         }
-
         if (BlackRight.Code == 0)
             MakeCall(BlackMove, BlackFigure, Desk);
         else {
