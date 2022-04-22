@@ -5,6 +5,7 @@
 #include <libchessviz/StrExtend.h>
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main() {
     char Desk[deskSide][deskSide] = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
@@ -30,8 +31,8 @@ int main() {
         WhiteFigure = GetFigure(WhiteCall, WHITE);
         BlackFigure = GetFigure(BlackCall, BLACK);
         if (WhiteFigure == '1' || BlackFigure == '1') {
-            printf("-> %s <-", "Can't get figure!");
-            getchar();
+            printf("-> %s <-\n", "Can't get figure!");
+            system("pause");
             return 1;
         }
 
@@ -44,16 +45,16 @@ int main() {
         if (WhiteRight.Code == 0)
             MakeCall(WhiteMove, WhiteFigure, Desk);
         else {
-            printf("-> %s <-", WhiteRight.Error);
-            getchar();
+            printf("-> %s <-\n", WhiteRight.Error);
+            system("pause");
             return 1;
         }
 
         if (BlackRight.Code == 0)
             MakeCall(BlackMove, BlackFigure, Desk);
         else {
-            printf("-> %s <-", WhiteRight.Error);
-            getchar();
+            printf("-> %s <-\n", WhiteRight.Error);
+            system("pause");
             return 1;
         };
         printf("____________________\n\n");
