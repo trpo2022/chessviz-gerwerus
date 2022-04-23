@@ -4,8 +4,8 @@
 #include <libchessviz/PrintDesk.h>
 #include <libchessviz/StrExtend.h>
 #include <math.h>
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main()
 {
