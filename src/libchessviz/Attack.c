@@ -239,11 +239,10 @@ int UnderAttack(int X, int Y, char Desk[][deskSide])
 }
 
 int* FindFigure(char Figure, char Desk[][deskSide])
-{	
+{
     int i, j;
     int* Cord = (int*)malloc(sizeof(int) * 2);
     Cord[0] = Cord[1] = -1;
- 
     for (i = 0; i < deskSide; i++) {
         for (j = 0; j < deskSide; j++) {
             if (Desk[i][j] == Figure) {
@@ -255,7 +254,6 @@ int* FindFigure(char Figure, char Desk[][deskSide])
     }
     return Cord;
 }
-
 
 int KingUnderAttack(int Color, char Desk[][deskSide])
 {
