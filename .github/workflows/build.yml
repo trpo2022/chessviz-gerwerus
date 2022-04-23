@@ -17,5 +17,6 @@ jobs:
         
       - name: Compile Tests
         run: make test
+        
       - name: Tests
-        run: ls bin
+        run: ./bin/chessviz_test
