@@ -35,3 +35,8 @@ $(PREF_BIN)$(TARGET) : $(OBJ)
 .PHONY: test
 test : $(TEST_OBJ) $(LIB_OBJ)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) $(POST_LIB) $(POST_TEST) -o $(PREF_BIN)$(TEST_TARGET)
+
+clean : 
+	rm $(POST_OBJ) $(PREF_BIN)$(TARGET) $(PREF_OBJ)*/*/*.d $(POST_TEST) $(PREF_OBJ)*/*.d
+	
+
