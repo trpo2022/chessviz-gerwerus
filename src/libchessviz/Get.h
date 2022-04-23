@@ -1,7 +1,7 @@
-#include <libchessviz/StrExtend.h>
 #include <ctype.h>
-#include <string.h>
 #include <libchessviz/Check.h>
+#include <libchessviz/StrExtend.h>
+#include <string.h>
 #define CallSize 10
 #define WHITE 0
 #define BLACK 1
