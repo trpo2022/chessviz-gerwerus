@@ -7,7 +7,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-int main() {
+int main()
+{
     char Desk[deskSide][deskSide] = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
                                      {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
                                      {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
@@ -21,7 +22,8 @@ int main() {
     Move WhiteMove, BlackMove;
     Right WhiteRight, BlackRight;
 
-    while (run == 1) {
+    while (run == 1)
+    {
         i++;
         PrintDesk(Desk);
         printf("\n%d. ", i);
@@ -30,7 +32,8 @@ int main() {
 
         WhiteFigure = GetFigure(WhiteCall, WHITE);
         BlackFigure = GetFigure(BlackCall, BLACK);
-        if (WhiteFigure == '1' || BlackFigure == '1') {
+        if (WhiteFigure == '1' || BlackFigure == '1')
+        {
             printf("-> %s <-\n", "Can't get figure!");
             system("pause");
             return 1;
