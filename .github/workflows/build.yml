@@ -15,5 +15,7 @@ jobs:
       - name: Build application
         run: make
         
-      - name: Testing
+      - name: Compile Tests
         run: make test
+      - name: Tests
+        run: ./bin/chessviz-test
