@@ -9,8 +9,7 @@ int IsUpper(char c)
 int strfnd(char* dest, char val)
 {
     size_t i = 0;
-    while (i < strlen(dest))
-    {
+    while (i < strlen(dest)) {
         if (dest[i] == val)
             return i;
         i++;
