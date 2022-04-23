@@ -1,12 +1,13 @@
 #include <libchessviz/Check.h>
 
-Right CheckPawn(int H0,
-                int H1,
-                int V0,
-                int V1,
-                char MoveType,
-                int Figure,
-                char Desk[][deskSide])
+Right CheckPawn(
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
+        char Desk[][deskSide])
 {
     int Color = IsUpper(Figure);
     Right right;
