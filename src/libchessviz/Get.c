@@ -6,8 +6,7 @@ char GetFigure(char Call[], int Color)
     // strcpy(&Figure, Call);
     memcpy(&Figure, Call, sizeof(char));
     // Figure = Call[0];
-    if (Figure == tolower(Figure) && strfnd(Alp, Figure) != -1)
-    {
+    if (Figure == tolower(Figure) && strfnd(Alp, Figure) != -1) {
         Figure = 'P';
     }
 
@@ -53,29 +52,25 @@ Right GetRight(char Figure, Move move, char Desk[][deskSide])
     MoveType = move.MoveType;
     Right right;
 
-    if (H0 < 0 || H1 < 0 || V0 < 0 || V1 < 0)
-    {
+    if (H0 < 0 || H1 < 0 || V0 < 0 || V1 < 0) {
         right.Code = 1;
         strcpy(right.Error, "Can't get coordinats");
         return right;
     }
 
-    if (Desk[V0][H0] != Figure)
-    {
+    if (Desk[V0][H0] != Figure) {
         right.Code = 1;
         strcpy(right.Error, "Different figure");
         return right;
     }
 
-    if (V0 == V1 && H0 == H1)
-    {
+    if (V0 == V1 && H0 == H1) {
         right.Code = 1;
         strcpy(right.Error, "You don't make a move");
         return right;
     };
 
-    if (Figure == 'P' || Figure == 'p')
-    {
+    if (Figure == 'P' || Figure == 'p') {
         right = CheckPawn(H0, H1, V0, V1, MoveType, Figure, Desk);
         return right;
     }
