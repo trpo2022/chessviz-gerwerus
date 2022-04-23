@@ -1,4 +1,7 @@
 #include <libchessviz/Attack.h>
+#include <libchessviz/Collision.h>
+#include <libchessviz/MathExtend.h>
+#include <libchessviz/StrExtend.h>
 #include <../thirdparty/ctest.h>
 
 char DefaultDesk[deskSide][deskSide]
@@ -115,5 +118,34 @@ CTEST(BishopCollision, a3_e7)
 	const int y1 = 5, x1 = 0, y2 = 1, x2 = 4;
 	const int expected = -1;
 	const int result = BishopCollision(x1, y1, x2, y2 , DefaultDesk);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(Minimum, 150_12) 
+{
+	const int a = 150, b = 12;
+	const int expected = 12;
+	const int result = min(a, b);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(Maximum, 1500_12122) 
+{
+	const int a = 1500, b = 12122;
+	const int expected = 12122;
+	const int result = max(a, b);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(IsUpper, A) 
+{
+	const char a = 'A';
+	const int expected = 1;
+	const int result = IsUpper(a);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(strfnd, cccabb_a_3) 
+{
+	char str[6] = "cccabb";
+	char a = 'a';
+	const int expected = 3;
+	const int result = strfnd(str, a);
 	ASSERT_EQUAL(expected, result);
 }
