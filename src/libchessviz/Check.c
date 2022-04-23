@@ -1,7 +1,12 @@
 #include <libchessviz/Check.h>
 
 Right CheckPawn(
-        int H0, int H1, int V0, int V1, char MoveType, int Figure,
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
         char Desk[][deskSide])
 {
     int Color = IsUpper(Figure);
@@ -63,7 +68,12 @@ Right CheckPawn(
 }
 
 Right CheckKing(
-        int H0, int H1, int V0, int V1, char MoveType, int Figure,
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
         char Desk[][deskSide])
 {
     int Color = IsUpper(Figure);
@@ -97,7 +107,12 @@ Right CheckKing(
 }
 
 Right CheckKnight(
-        int H0, int H1, int V0, int V1, char MoveType, int Figure,
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
         char Desk[][deskSide])
 {
     int Color = IsUpper(Figure);
@@ -133,7 +148,12 @@ Right CheckKnight(
 }
 
 Right CheckQueen(
-        int H0, int H1, int V0, int V1, char MoveType, int Figure,
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
         char Desk[][deskSide])
 {
     int Color = IsUpper(Figure);
@@ -176,7 +196,12 @@ Right CheckQueen(
 }
 
 Right CheckRook(
-        int H0, int H1, int V0, int V1, char MoveType, int Figure,
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
         char Desk[][deskSide])
 {
     int Color = IsUpper(Figure);
@@ -213,7 +238,12 @@ Right CheckRook(
 }
 
 Right CheckBishop(
-        int H0, int H1, int V0, int V1, char MoveType, int Figure,
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
         char Desk[][deskSide])
 {
     int Color = IsUpper(Figure);
