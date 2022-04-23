@@ -68,3 +68,52 @@ CTEST(KingUnderAttack, White)
 	const int result = KingUnderAttack(white, DefaultDesk);
 	ASSERT_EQUAL(expected, result);
 }
+CTEST(RookCollision, a3_h3) 
+{
+	const int y1 = 5, x1 = 0, y2 = 5, x2 = 7;
+	const int expected = 0;
+	const int result = RookCollision(x1, y1, x2, y2 , DefaultDesk);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(RookCollision, a3_a5) 
+{
+	const int y1 = 5, x1 = 0, y2 = 3, x2 = 0;
+	const int expected = 0;
+	const int result = RookCollision(x1, y1, x2, y2 , DefaultDesk);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(RookCollision, a3_a8) 
+{
+	const int y1 = 5, x1 = 0, y2 = 0, x2 = 0;
+	const int expected = -1;
+	const int result = RookCollision(x1, y1, x2, y2 , DefaultDesk);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(BishopCollision, a3_a8) 
+{
+	const int y1 = 5, x1 = 0, y2 = 0, x2 = 0;
+	const int expected = -1;
+	const int result = RookCollision(x1, y1, x2, y2 , DefaultDesk);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(BishopCollision, a3_d6) 
+{
+	const int y1 = 5, x1 = 0, y2 = 2, x2 = 3;
+	const int expected = 0;
+	const int result = BishopCollision(x1, y1, x2, y2 , DefaultDesk);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(BishopCollision, d6_a3) 
+{
+	const int y2 = 5, x2 = 0, y1 = 2, x1 = 3;
+	const int expected = 0;
+	const int result = BishopCollision(x1, y1, x2, y2 , DefaultDesk);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(BishopCollision, a3_e7) 
+{
+	const int y1 = 5, x1 = 0, y2 = 1, x2 = 4;
+	const int expected = -1;
+	const int result = BishopCollision(x1, y1, x2, y2 , DefaultDesk);
+	ASSERT_EQUAL(expected, result);
+}
