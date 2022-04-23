@@ -8,5 +8,10 @@ typedef struct Right {
 } Right;
 
 Right CheckPawn(
-        int H0, int H1, int V0, int V1, char MoveType, int Figure,
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
         char Desk[][deskSide]);
