@@ -1,9 +1,8 @@
 #include <libchessviz/Attack.h>
 
-
 int UnderAttack(int X, int Y, char Desk[][deskSide])
 {
-	int h = Y, v = X, WhiteAttack = 0, BlackAttack = 0;
+    int h = Y, v = X, WhiteAttack = 0, BlackAttack = 0;
 
     for (h += 1; h < deskSide; h++)
         if (Desk[v][h] != ' ' && h != Y) {
@@ -240,37 +239,40 @@ int UnderAttack(int X, int Y, char Desk[][deskSide])
 }
 
 int* FindFigure(char Figure, char Desk[][deskSide])
-{
-	
-	int i, j;
-	int* Cord = (int*)malloc(sizeof(int)*2); 
-	Cord[0] = Cord[1] = -1;
-	
-	for(i = 0; i < deskSide; i++) {
-		for(j = 0; j < deskSide; j++) {
-			if(Desk[i][j] == Figure) {
-				Cord[0] = i;
-				Cord[1] = j;
-				return Cord;
-			}
-		}
-	}
-	return Cord;
+{	
+    int i, j;
+    int* Cord = (int*)malloc(sizeof(int) * 2);
+    Cord[0] = Cord[1] = -1;
+ 
+    for (i = 0; i < deskSide; i++) {
+        for (j = 0; j < deskSide; j++) {
+            if (Desk[i][j] == Figure) {
+                Cord[0] = i;
+                Cord[1] = j;
+                return Cord;
+            }
+        }
+    }
+    return Cord;
 }
 
 
 int KingUnderAttack(int Color, char Desk[][deskSide])
 {
-	int *King = (int*)malloc(sizeof(int)*2);
-	King[0] = FindFigure('K', Desk)[0];
-	King[1] = FindFigure('K', Desk)[1];	
-	if(Color == 1) {	
-		if(UnderAttack(King[0], King[1], Desk) == -Color || UnderAttack(King[0], King[1], Desk) == 2) return 1;
-	} else {
-		King[0] = FindFigure('k', Desk)[0];
-		King[1] = FindFigure('k', Desk)[1];
-		if(UnderAttack(King[0], King[1], Desk) == -Color || UnderAttack(King[0], King[1], Desk) == 2) return 1;
-	}
-	free(King);
-	return 0;
+    int* King = (int*)malloc(sizeof(int) * 2);
+    King[0] = FindFigure('K', Desk)[0];
+    King[1] = FindFigure('K', Desk)[1];
+    if (Color == 1) {
+        if (UnderAttack(King[0], King[1], Desk) == -Color
+            || UnderAttack(King[0], King[1], Desk) == 2)
+            return 1;
+    } else {
+        King[0] = FindFigure('k', Desk)[0];
+        King[1] = FindFigure('k', Desk)[1];
+        if (UnderAttack(King[0], King[1], Desk) == -Color
+            || UnderAttack(King[0], King[1], Desk) == 2)
+            return 1;
+    }
+    free(King);
+    return 0;
 }
