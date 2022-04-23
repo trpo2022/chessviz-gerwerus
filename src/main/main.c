@@ -30,7 +30,7 @@ int main()
         printf("\n%d. ", i);
 
         scanf("%s %s", WhiteCall, BlackCall);
-		
+
         WhiteFigure = GetFigure(WhiteCall, WHITE);
         BlackFigure = GetFigure(BlackCall, BLACK);
         if (WhiteFigure == '1' || BlackFigure == '1') {
@@ -44,9 +44,9 @@ int main()
 
         WhiteRight = GetRight(WhiteFigure, WhiteMove, Desk);
         BlackRight = GetRight(BlackFigure, BlackMove, Desk);
-//		WhiteRokirovka = WhiteRight.Rokirovka;
-//		BlackRokirovka = BlackRight.Rokirovka;
-		
+        //		WhiteRokirovka = WhiteRight.Rokirovka;
+        //		BlackRokirovka = BlackRight.Rokirovka;
+
         if (WhiteRight.Code == 0)
             MakeCall(WhiteMove, WhiteFigure, Desk);
         else {
@@ -61,13 +61,14 @@ int main()
             system("pause");
             return 1;
         };
-        if(KingUnderAttack(WHITE, Desk) != 0 || KingUnderAttack(BLACK, Desk) != 0){
-        	printf("____________________\n\n");
-			PrintDesk(Desk);
-        	printf("-> King under attack <-\n");
+        if (KingUnderAttack(WHITE, Desk) != 0
+            || KingUnderAttack(BLACK, Desk) != 0) {
+            printf("____________________\n\n");
+            PrintDesk(Desk);
+            printf("-> King under attack <-\n");
             system("pause");
             return 1;
-		}
+        }
         printf("____________________\n\n");
 
         //    	system("cls");
