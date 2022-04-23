@@ -1,5 +1,6 @@
 #include <libchessviz/Attack.h>
 #include <libchessviz/Collision.h>
+#include <libchessviz/Get.h>
 #include <libchessviz/MathExtend.h>
 #include <libchessviz/StrExtend.h>
 #include <../thirdparty/ctest.h>
@@ -148,4 +149,68 @@ CTEST(strfnd, cccabb_a_3)
 	const int expected = 3;
 	const int result = strfnd(str, a);
 	ASSERT_EQUAL(expected, result);
+}
+CTEST(GetFigure, e2_e4_P) 
+{
+	int Color = 0;
+	char Call[10] = "e2-e4";
+	char expected = 'P';
+	char result = GetFigure(Call, Color);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(GetFigure, Kd2_f4_k) 
+{
+	int Color = 1;
+	char Call[10] = "Kd2-f4";
+	char expected = 'k';
+	char result = GetFigure(Call, Color);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(GetFigure, Rd2_f4_R) 
+{
+	int Color = 0;
+	char Call[10] = "Rd2-f4";
+	char expected = 'R';
+	char result = GetFigure(Call, Color);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(GetFigure, Rd2_f4_r) 
+{
+	int Color = 1;
+	char Call[10] = "Rd2-f4";
+	char expected = 'r';
+	char result = GetFigure(Call, Color);
+	ASSERT_EQUAL(expected, result);
+}
+CTEST(GetMove, e2_e4) 
+{
+	char Call[10] = "e2-e4";
+	Move expected;
+	expected.H0 = 4;
+	expected.H1 = 4;
+	expected.V0 = 6;
+	expected.V1 = 4;
+	expected.MoveType = '-';
+	Move result = GetMove(Call);
+	ASSERT_EQUAL(expected.H0, result.H0);
+	ASSERT_EQUAL(expected.H1, result.H1);
+	ASSERT_EQUAL(expected.V0, result.V0);
+	ASSERT_EQUAL(expected.V1, result.V1);
+	ASSERT_EQUAL(expected.MoveType, result.MoveType);
+}
+CTEST(GetMove, d2xd3) 
+{
+	char Call[10] = "d2xd3";
+	Move expected;
+	expected.H0 = 3;
+	expected.H1 = 3;
+	expected.V0 = 6;
+	expected.V1 = 5;
+	expected.MoveType = 'x';
+	Move result = GetMove(Call);
+	ASSERT_EQUAL(expected.H0, result.H0);
+	ASSERT_EQUAL(expected.H1, result.H1);
+	ASSERT_EQUAL(expected.V0, result.V0);
+	ASSERT_EQUAL(expected.V1, result.V1);
+	ASSERT_EQUAL(expected.MoveType, result.MoveType);
 }
