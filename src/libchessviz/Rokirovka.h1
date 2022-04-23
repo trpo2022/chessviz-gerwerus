@@ -1,0 +1,15 @@
+#include <string.h>
+#pragma once
+#define Long 1;
+#define Short 0;
+
+
+typedef struct RokType {
+    int Code;
+    int Type;
+    int Color;
+} RokType;
+
+RokType IsRokirovka(char Call[], int Color);
+int CheckRokirovka(RokType rok);
+void MakeRokirovka(RokType rok, char Desk[][deskSide]);
