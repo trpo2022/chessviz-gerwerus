@@ -2,6 +2,7 @@
 #include <libchessviz/StrExtend.h>
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #pragma once
 typedef struct Right {
