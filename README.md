@@ -3,8 +3,9 @@ chessviz-gerwerus created by GitHub Classroom
 Герман Просянников ИП-112
 
 How to install:
-$ make Makefile chessviz
-How to Run:
-$ make Makefile run
-How to uninstall:
-$ make Makefile clear
+  $ make 
+How to clean:
+  $ make clean
+How to Test:
+  $ make test
+  $./bin/chessviz_test
