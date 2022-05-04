@@ -9,7 +9,7 @@ TARGET = chessviz
 SRC = $(wildcard $(PREF_SRC)*/*.c)
 OBJ = $(patsubst %.c, %.o, $(SRC))
 POST_OBJ = $(patsubst ./%.c, $(PREF_OBJ)%.o, $(SRC))
-STATIC = ./obj/libchessviz/static.a
+STATIC = ./obj/src/libchessviz/static.a
 
 $(PREF_BIN)$(TARGET) : $(OBJ) $(STATIC)
 	$(CC) $(CFLAGS) $(POST_OBJ) -o $(PREF_BIN)$(TARGET)
@@ -19,12 +19,10 @@ $(PREF_BIN)$(TARGET) : $(OBJ) $(STATIC)
 
 -include %.d
 
-$(STATIC) : %.o
+$(STATIC) : $(POST_OBJ)
 	ar rcs $@ $^
 
 
 .PHONY: clean
 clean : 
 	rm $(POST_OBJ) $(PREF_BIN)$(TARGET) $(PREF_OBJ)*/*/*.d
-	
-
