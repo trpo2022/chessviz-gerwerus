@@ -41,6 +41,7 @@ $(STATIC) : $(LIB_OBJ)
 test : $(TEST_OBJ) $(STATIC)
         $(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) $(STATIC) $(POST_TEST) -o $(PREF_BIN)$(TEST_TARGET)
 
+
 .PHONY: clean
 clean :
         rm $(POST_OBJ) $(PREF_BIN)$(TARGET) $(PREF_OBJ)*/*/*.d $(POST_TEST) $(PREF_OBJ)*/*.d $(PREF_OBJ)*/*/*.a $(PREF_BIN)$(TEST_TARGET)
