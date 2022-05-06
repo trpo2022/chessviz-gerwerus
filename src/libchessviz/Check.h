@@ -1,0 +1,61 @@
+#include <libchessviz/Collision.h>
+#include <libchessviz/StrExtend.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#pragma once
+typedef struct Right {
+    int Code;
+    char Error[100];
+    int Rokirovka;
+} Right;
+
+Right CheckPawn(
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
+        char Desk[][deskSide]);
+Right CheckKing(
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
+        char Desk[][deskSide]);
+Right CheckQueen(
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
+        char Desk[][deskSide]);
+Right CheckKnight(
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
+        char Desk[][deskSide]);
+Right CheckRook(
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
+        char Desk[][deskSide]);
+Right CheckBishop(
+        int H0,
+        int H1,
+        int V0,
+        int V1,
+        char MoveType,
+        int Figure,
+        char Desk[][deskSide]);
