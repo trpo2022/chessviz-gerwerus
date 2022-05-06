@@ -27,20 +27,20 @@ POST_LIB = $(patsubst ./%.c, $(PREF_OBJ)%.o, $(LIB))
 all : $(PREF_BIN)$(TARGET)
 
 $(PREF_BIN)$(TARGET) : ./src/main/main.o $(STATIC)
-        $(CC) $(CFLAGS) ./obj/src/main/main.o $(STATIC) -o $(PREF_BIN)$(TARGET)
+	$(CC) $(CFLAGS) ./obj/src/main/main.o $(STATIC) -o $(PREF_BIN)$(TARGET)
 
 %.o : %.c
-        $(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) -c $< -o $(PREF_OBJ)$@
+	$(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) -c $< -o $(PREF_OBJ)$@
 
 -include %.d
 
 $(STATIC) : $(LIB_OBJ)
-        ar rcs $@ $(POST_LIB)
+	ar rcs $@ $(POST_LIB)
 
 .PHONY: test
 test : $(TEST_OBJ) $(STATIC)
-        $(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) $(POST_TEST) $(STATIC) -o $(PREF_BIN)$(TEST_TARGET)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) $(POST_TEST) $(STATIC) -o $(PREF_BIN)$(TEST_TARGET)
 
 .PHONY: clean
 clean :
-        rm $(POST_OBJ) $(PREF_BIN)$(TARGET) $(PREF_OBJ)*/*/*.d $(POST_TEST) $(PREF_OBJ)*/*.d $(PREF_OBJ)*/*/*.a $(PREF_BIN)$(TEST_TARGET)
+	rm $(POST_OBJ) $(PREF_BIN)$(TARGET) $(PREF_OBJ)*/*/*.d $(POST_TEST) $(PREF_OBJ)*/*.d $(PREF_OBJ)*/*/*.a $(PREF_BIN)$(TEST_TARGET)
