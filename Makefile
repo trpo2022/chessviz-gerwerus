@@ -1,5 +1,5 @@
-CFLAGS = -Wall -Wextra -Werror
-CPPFLAGS = -MMD
+СFLAGS = -Wall -Wextra -Werror
+CPdPFLAGS = -MMD
 PREF_SRC = ./src/
 PREF_OBJ = ./obj/
 PREF_BIN = ./bin/
@@ -17,26 +17,30 @@ POST_TEST = $(patsubst ./%.c, $(PREF_OBJ)%.o, $(TEST))
 SRC = $(wildcard $(PREF_SRC)*/*.c)
 OBJ = $(patsubst %.c, %.o, $(SRC))
 POST_OBJ = $(patsubst ./%.c, $(PREF_OBJ)%.o, $(SRC))
+STATIC = ./obj/src/libchessviz/static.a
 
 LIB = $(wildcard $(PREF_LIB)*.c)
 LIB_OBJ = $(patsubst %.c, %.o, $(LIB))
 POST_LIB = $(patsubst ./%.c, $(PREF_OBJ)%.o, $(LIB))
 
+.PHONY: all
 all : $(PREF_BIN)$(TARGET)
 
-$(PREF_BIN)$(TARGET) : $(OBJ)
-	$(CC) $(CFLAGS) $(POST_OBJ) -o $(PREF_BIN)$(TARGET)
+$(PREF_BIN)$(TARGET) : ./src/main/main.o $(STATIC)
+        $(CC) $(CFLAGS) ./obj/src/main/main.o $(STATIC) -o $(PREF_BIN)$(TARGET)
 
 %.o : %.c
-	$(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) -c $< -o $(PREF_OBJ)$@
+        $(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) -c $< -o $(PREF_OBJ)$@
 
 -include %.d
 
+$(STATIC) : $(LIB_OBJ)
+        ar rcs $@ $(POST_LIB)
+
 .PHONY: test
-test : $(TEST_OBJ) $(LIB_OBJ)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) $(POST_LIB) $(POST_TEST) -o $(PREF_BIN)$(TEST_TARGET)
+test : $(TEST_OBJ) $(STATIC)
+        $(CC) $(CFLAGS) $(CPPFLAGS) -I $(PREF_SRC) $(STATIC) $(POST_TEST) -o $(PREF_BIN)$(TEST_TARGET)
 
-clean : 
-	rm $(POST_OBJ) $(PREF_BIN)$(TARGET) $(PREF_OBJ)*/*/*.d $(POST_TEST) $(PREF_OBJ)*/*.d
-	
-
+.PHONY: clean
+clean :
+        rm $(POST_OBJ) $(PREF_BIN)$(TARGET) $(PREF_OBJ)*/*/*.d $(POST_TEST) $(PREF_OBJ)*/*.d $(PREF_OBJ)*/*/*.a $(PREF_BIN)$(TEST_TARGET)
