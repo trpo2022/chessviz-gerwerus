@@ -23,9 +23,6 @@ LIB = $(wildcard $(PREF_LIB)*.c)
 LIB_OBJ = $(patsubst %.c, %.o, $(LIB))
 POST_LIB = $(patsubst ./%.c, $(PREF_OBJ)%.o, $(LIB))
 
-.PHONY: all
-all : $(PREF_BIN)$(TARGET)
-
 $(PREF_BIN)$(TARGET) : ./src/main/main.o $(STATIC)
         $(CC) $(CFLAGS) ./obj/src/main/main.o $(STATIC) -o $(PREF_BIN)$(TARGET)
 
