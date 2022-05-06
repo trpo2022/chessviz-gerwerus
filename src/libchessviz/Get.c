@@ -73,6 +73,21 @@ Right GetRight(char Figure, Move move, char Desk[][deskSide])
     if (Figure == 'P' || Figure == 'p') {
         right = CheckPawn(H0, H1, V0, V1, MoveType, Figure, Desk);
         return right;
+    } else if (Figure == 'K' || Figure == 'k') {
+        right = CheckKing(H0, H1, V0, V1, MoveType, Figure, Desk);
+        return right;
+    } else if (Figure == 'N' || Figure == 'n') {
+        right = CheckKnight(H0, H1, V0, V1, MoveType, Figure, Desk);
+        return right;
+    } else if (Figure == 'Q' || Figure == 'q') {
+        right = CheckQueen(H0, H1, V0, V1, MoveType, Figure, Desk);
+        return right;
+    } else if (Figure == 'R' || Figure == 'r') {
+        right = CheckRook(H0, H1, V0, V1, MoveType, Figure, Desk);
+        return right;
+    } else if (Figure == 'B' || Figure == 'b') {
+        right = CheckBishop(H0, H1, V0, V1, MoveType, Figure, Desk);
+        return right;
     }
     right.Code = 0;
     strcpy(right.Error, "---");

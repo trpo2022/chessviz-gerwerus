@@ -1,3 +1,4 @@
+#include <libchessviz/Attack.h>
 #include <libchessviz/Call.h>
 #include <libchessviz/Get.h>
 #include <libchessviz/MathExtend.h>
@@ -43,6 +44,8 @@ int main()
 
         WhiteRight = GetRight(WhiteFigure, WhiteMove, Desk);
         BlackRight = GetRight(BlackFigure, BlackMove, Desk);
+        //		WhiteRokirovka = WhiteRight.Rokirovka;
+        //		BlackRokirovka = BlackRight.Rokirovka;
 
         if (WhiteRight.Code == 0)
             MakeCall(WhiteMove, WhiteFigure, Desk);
@@ -58,6 +61,14 @@ int main()
             system("pause");
             return 1;
         };
+        if (KingUnderAttack(WHITE, Desk) != 0
+            || KingUnderAttack(BLACK, Desk) != 0) {
+            printf("____________________\n\n");
+            PrintDesk(Desk);
+            printf("-> King under attack <-\n");
+            system("pause");
+            return 1;
+        }
         printf("____________________\n\n");
 
         //    	system("cls");
